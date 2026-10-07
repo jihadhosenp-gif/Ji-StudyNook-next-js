@@ -1,0 +1,73 @@
+
+c:\pro\assignment\my-app\src\app\rooms\RoomsView.js
+  47:5  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  45 |
+  46 |   useEffect(() => {
+> 47 |     load();
+     |     ^^^^ Avoid calling setState() directly within an effect
+  48 |     // eslint-disable-next-line react-hooks/exhaustive-deps
+  49 |   }, []);
+  50 |  react-hooks/set-state-in-effect
+  48:5  warning  Unused eslint-disable directive (no problems were reported from 'react-hooks/exhaustive-deps')
+
+c:\pro\assignment\my-app\src\app\rooms\[id]\RoomDetailView.js
+  58:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  56 |
+  57 |   useEffect(() => {
+> 58 |     load();
+     |     ^^^^ Avoid calling setState() directly within an effect
+  59 |     // eslint-disable-next-line react-hooks/exhaustive-deps
+  60 |   }, [roomId]);
+  61 |  react-hooks/set-state-in-effect
+
+c:\pro\assignment\my-app\src\components\BookingModal.js
+  29:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  27 |   useEffect(() => {
+  28 |     if (open) {
+> 29 |       setDate(initial?.date || todayISO());
+     |       ^^^^^^^ Avoid calling setState() directly within an effect
+  30 |       setStartTime(initial?.startTime || "");
+  31 |       setEndTime(initial?.endTime || "");
+  32 |       setNote("");  react-hooks/set-state-in-effect
+
+c:\pro\assignment\my-app\src\context\ThemeContext.js
+  12:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+  10 |   // The inline script in layout.js sets the class before paint; sync React state with it.
+  11 |   useEffect(() => {
+> 12 |     setTheme(document.documentElement.classList.contains("dark") ? "dark" : "light");
+     |     ^^^^^^^^ Avoid calling setState() directly within an effect
+  13 |   }, []);
+  14 |
+  15 |   const toggle = useCallback(() => {  react-hooks/set-state-in-effect
+
+✖ 5 problems (4 errors, 1 warning)
+  0 errors and 1 warning potentially fixable with the `--fix` option.
+
